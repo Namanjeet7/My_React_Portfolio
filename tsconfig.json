@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "ES6",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "allowJs": true,
+      "jsx": "react",
+      "isolatedModules": true,
+      "resolveJsonModule": true
+    },
+    "include": ["src"]
+  }
+  
