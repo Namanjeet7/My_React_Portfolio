@@ -21,19 +21,19 @@ function Header() {
 
             <div className={headerCSS.HeroIMG} id={headerCSS.heroimg}>
                 <img src={HeroIMG} alt="HeroIMG" />
-                <img src={Element1} alt="HeroIMG" id={headerCSS.Element1}/>
-                <img src={Element2} alt="HeroIMG" id={headerCSS.Element2}/>
+                <img src={Element1} alt="Element1" id={headerCSS.Element1}/>
+                <img src={Element2} alt="Element2" id={headerCSS.Element2}/>
             </div>
 
             <div className={headerCSS.social}>
-                <img src={arrowTop} alt="HeroIMG" id={headerCSS.arrowTop}/>
+                <img src={arrowTop} alt="arrowTop" id={headerCSS.arrowTop}/>
 
-                <i className="ri-facebook-line"></i>
-                <i className="ri-instagram-line"></i>
-                <i className="ri-twitter-line"></i>
-                <i className="ri-github-line"></i>
+                <i className="ri-facebook-line" aria-label="facebook"></i>
+                <i className="ri-instagram-line" aria-label="instagram"></i>
+                <i className="ri-twitter-line" aria-label="twitter"></i>
+                <i className="ri-github-line" aria-label="github"></i>
 
-                <img src={arrowBottom} alt="HeroIMG" id={headerCSS.arrowBottom}/>
+                <img src={arrowBottom} alt="arrowBottom" id={headerCSS.arrowBottom}/>
             </div>
         </div>
     )

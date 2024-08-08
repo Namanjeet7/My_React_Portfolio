@@ -1,5 +1,5 @@
-// .storybook/preview.jsx
-
+import '@storybook/testing-library';
+import '@storybook/jest';
 import '../src/index.css'; // Import your global CSS here
 
 const preview = {

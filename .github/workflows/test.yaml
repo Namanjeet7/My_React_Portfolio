@@ -40,7 +40,7 @@ jobs:
         sleep 30
 
     - name: Run Storybook tests
-      run: docker run main npm run test:storybook -- --passWithNoTests
+      run: docker run main npm run test:storybook -- --verbose
 
   deploy:
     name: Deploy to Vercel

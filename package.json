@@ -36,7 +36,10 @@
     ]
   },
   "dependencies": {
+    "@storybook/jest": "^0.2.2",
+    "@storybook/testing-library": "^0.2.1",
     "bootstrap": "5.2.3",
+    "chai": "^5.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "6.1.11"
@@ -59,7 +62,7 @@
     "@storybook/test": "8.1.10",
     "@storybook/test-runner": "0.18.2",
     "@testing-library/jest-dom": "^6.4.8",
-    "@testing-library/react": "16.0.0",
+    "@testing-library/react": "^16.0.0",
     "@types/jest": "29.5.12",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
