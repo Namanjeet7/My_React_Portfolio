@@ -37,7 +37,7 @@ jobs:
     - name: Start Storybook in background
       run: |
         docker run -d -p 6006:6006 main npm run storybook
-        sleep 30
+        until curl -s http://127.0.0.1:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 5; done
 
     - name: Run Storybook tests
       run: docker run main npm run test:storybook -- --url http://127.0.0.1:6006 --verbose

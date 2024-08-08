@@ -23,4 +23,4 @@ RUN npm run build
 EXPOSE 6006
 
 # Command to run Storybookk
-CMD ["npm", "run", "storybook"]
+CMD ["sh", "-c", "npm run storybook & tail -f /dev/null"]
