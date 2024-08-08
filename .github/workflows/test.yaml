@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build docker images
+    - name: Build Docker image
       run: docker build -t main -f $COMPOSE_FILE .
 
     - name: Create Docker network
@@ -37,10 +37,17 @@ jobs:
     - name: Start Storybook
       run: |
         docker run -d --name storybook-container --network storybook-net -p 6006:6006 main npm run storybook
-        until curl -s http://storybook-container:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 30; done
+        echo "Waiting for Storybook to be accessible..."
+        until docker exec storybook-container curl -s http://localhost:6006 > /dev/null; do echo "Still waiting..."; sleep 30; done
 
     - name: Run Storybook tests
       run: docker run --rm --network storybook-net main sh -c "npm run test:storybook -- --url http://storybook-container:6006/?path=/docs/configure-your-project--docs --verbose"
+
+    - name: Cleanup
+      run: |
+        docker stop storybook-container
+        docker network rm storybook-net
+
   deploy:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
@@ -49,7 +56,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '16'
