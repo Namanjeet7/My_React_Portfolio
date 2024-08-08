@@ -37,7 +37,7 @@ jobs:
         until curl -s http://127.0.0.1:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 5; done
 
     - name: Run Storybook tests
-      run: docker run main npm run test:storybook -- --url http://127.0.0.1:6006 --verbose
+      run: docker run main npm run test:storybook -- --url localhost:6006 --verbose
 
   deploy:
     name: Deploy to Vercel
