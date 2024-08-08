@@ -31,14 +31,16 @@ jobs:
     - name: Build docker images
       run: docker build -t main -f $COMPOSE_FILE .
 
+    - name: Create Docker network
+      run: docker network create storybook-net
+
     - name: Start Storybook
       run: |
-        docker run -d -p 6006:6006 main npm run storybook
-        until curl -s http://127.0.0.1:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 5; done
+        docker run -d --name storybook-container --network storybook-net -p 6006:6006 main npm run storybook
+        until curl -s http://storybook-container:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 5; done
 
     - name: Run Storybook tests
-      run: docker run --rm main sh -c "npm run test:storybook -- --url http://host.docker.internal:6006/?path=/docs/configure-your-project--docs --verbose"
-
+      run: docker run --rm --network storybook-net main sh -c "npm run test:storybook -- --url http://storybook-container:6006/?path=/docs/configure-your-project--docs --verbose"
   deploy:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
