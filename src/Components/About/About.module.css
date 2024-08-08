@@ -1,0 +1,192 @@
+.AboutWrapper{
+    background-color: var(--bg-color-header) !important;
+    overflow: hidden;
+    flex-direction: row !important;
+    position: relative;
+    padding-top: 200px !important;
+}
+
+.about_img{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.about_img::after{
+    content: "About Me";
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    font-size: 150px;
+    line-height: 150px;
+    width: 50%;
+    font-weight: 500;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255,255,255,0.1);
+    font-family: 'Abril FatFace' !important;
+}
+
+.about_img p {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+}
+
+.about_img .Img_Container{
+    width: 45%;
+    height: 45%;
+    border-radius: 50%;
+    position: relative;
+    background-image: linear-gradient(180deg, #bcffa4, #f59571);
+    z-index: 1;
+}
+
+.about_img .Img_Container::after{
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: 2.5%;
+    width: 95%;
+    height: 90%;
+    border-radius: 50%;
+    background-color: var(--bg-color-header) !important;
+    z-index: -1;
+}
+
+.about_img .Img_Container img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about_Content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;   
+}
+
+.about_Content h3{
+    font-style: 23px;
+    margin: 20px 0;
+    color: var(--text-color-light);
+    font-weight: 500;
+    letter-spacing: 5;
+}
+
+.about_Content h3 span{
+    color: var(--text-color);
+    margin: 0 5px;
+}
+
+.ExperienceWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ExperienceWrapper h1{
+    font-size: 60px;
+    font-size: 28px;
+    font-weight: 700;
+    background-image: linear-gradient(180deg, #bcffa4, #f59571);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.ExperienceWrapper h1 span{
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+marquee{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    background-color: var(--marqueeColor);
+}
+
+.marqueeTxt{
+    display: flex;
+    gap: 80px;
+}
+
+.marqueeTxt h1{
+    font-size: 55px;
+    color: var(--text-color-invert);
+    font-weight: 800;
+}
+
+@media screen and (max-width:1300px) {
+    .about_img .Img_Container{
+        width: 70%;
+    }
+
+    .about_img p {
+        top: -5%;
+    }
+
+    .ExperienceWrapper h1 {
+        font-size: 55px;
+    }
+
+    .ExperienceWrapper h1 span {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .AboutWrapper{
+        flex-direction: column !important;
+    }
+
+    .about_Content{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .about_img{
+        width: 58%;
+    }
+
+    .about_img .Img_Container{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .about_img .Img_Container{
+        width: 100%;
+    }
+
+    .about_img{
+        width: 78%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .about_img .Img_Container{
+        width: 100%;
+    }
+
+    .about_img{
+        width: 78%;
+    }
+
+    .ExperienceWrapper h1 {
+        font-size: 40px;
+    }
+
+    .ExperienceWrapper h1 span {
+        font-size: 15px;
+    }
+}

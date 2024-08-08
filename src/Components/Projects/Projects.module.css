@@ -1,0 +1,166 @@
+.ProjectWrapper{
+    background-color: var(--bg-color-header) !important;
+    overflow: hidden;
+    flex-direction: row !important;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.ProjectWrapper .projectLeftContainer, .ProjectWrapper .projectRightContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: start;
+    padding: 0 30px;
+    padding-top: 130px !important;
+}
+
+.ProjectWrapper .projectLeftContainer .Title{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ProjectWrapper .projectLeftContainer .Title h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.ProjectWrapper .Image{
+    height: 700px;
+    width: 500px;
+}
+.ProjectWrapper .Image .ProjectImg{
+    height: 90%;
+    width: 100%;
+    border-radius: 8px;
+    transition: .6s;
+    overflow: hidden;
+}
+
+.ProjectWrapper .Image:hover .ProjectImg{
+    transform: scale(0.95);
+}    
+
+.ProjectWrapper .Image .ProjectImg img{
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    transition: .6s;
+    object-fit: cover;
+}
+
+.ProjectWrapper .Image:hover .ProjectImg img{
+    transform: scale(1.2);
+}    
+
+.ProjectWrapper .Image .ProjectImg h4{
+    font-size: 16px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.ProjectWrapper button{
+    height: 138px;
+    width: 138px;
+    border: 0.2px solid rgba(131, 131, 131, 0.3);
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    border-radius: 50%;
+    color: var(--text-color);
+    margin-left: 60px;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: .6s;
+}
+
+.ProjectWrapper button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #bce706;
+    border-radius: 50%;
+    z-index: -1;
+    clip-path: circle(40% at 100% 100%);
+    transition: .6s;
+}
+
+.ProjectWrapper button:hover:after{
+    clip-path: circle(125% at 100% 100%);
+    font-weight: 500;
+}
+
+.ProjectWrapper button:hover{
+    color: #2a2525;
+    font-weight: 800;
+}
+
+.marquee{
+    background: none !important;
+}
+
+.marqueeTxt{
+    display: flex;
+    gap: 80px;
+}
+
+.marqueeTxt h1{
+    font-size: 105px;
+    color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: var(--text-color);
+    font-weight: 200;
+    font-family: 'Abril Fatface';
+}
+
+@media screen and (max-width:1400px){
+    .ProjectWrapper .Image{
+        width: 100%;
+    }
+
+    .ProjectWrapper .projectRightContainer{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .ProjectWrapper .Image{
+        height: 500px;
+    }
+    .ProjectWrapper .projectLeftContainer{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .ProjectWrapper{
+        flex-direction: column !important;
+    }
+
+    .projectLeftContainer{
+        width: 90%;
+    }
+
+    .projectRightContainer{
+        width: 90%;
+    }
+
+    .ProjectWrapper .Image{
+        height: 700px;
+    }
+
+    .ProjectWrapper button{
+        margin-left: 0;
+    }
+}

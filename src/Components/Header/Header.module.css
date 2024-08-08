@@ -1,0 +1,218 @@
+.Header{
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding: 0 12% !important;
+    padding-top: 100px !important;
+}
+
+.headerContent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    align-items: flex-start;
+}
+
+.headerContent #Heading{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 60px;
+}
+
+.headerContent h1{
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 100px;
+    color: var(--text-color);
+}
+
+.headerContent p{
+    font-size: 20px;
+    font-weight: 300;
+    padding-left: 60px;
+    color: var(--text-color);
+}
+
+.headerContent button{
+    height: 138px;
+    width: 138px;
+    border: 0.2px solid rgba(131, 131, 131, 0.3);
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 50%;
+    color: var(--text-color);
+    margin-left: 60px;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: .6s;
+}
+
+.headerContent button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #bce706;
+    border-radius: 50%;
+    z-index: -1;
+    clip-path: circle(40% at 100% 100%);
+    transition: .6s;
+}
+
+.headerContent button:hover:after{
+    clip-path: circle(125% at 100% 100%);
+    font-weight: 500;
+}
+
+.headerContent button:hover{
+    color: #000;
+    font-weight: 500;
+}
+
+.HeroIMG{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.HeroIMG::after{
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 150px;
+    height: 400px;
+    width: 400px;
+    filter: blur(190px);
+    background-color: rgba(132, 153, 78, 0.5);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.HeroIMG #heroimg{
+    width: 85%;
+}
+
+#Element1{
+    position: absolute;
+    top: 10%;
+    left:20%;
+    height: 60px;
+    width: 60px;
+}
+
+#Element2{
+    position: absolute;
+    top: 20%;
+    left:80%;
+    height: 100px;
+    width: 100px;
+}
+
+.social{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#arrowTop{
+    position: absolute;
+    top: -40%;
+    transform: translate(-50% , -50%);
+    left: 50%;
+    width: auto;
+    height: auto;
+    filter: invert(var(--invert));
+}
+
+#arrowBottom{
+    position: absolute;
+    bottom: -90%;
+    transform: translate(-50% , -50%);
+    left: 50%;
+    width: auto;
+    height: auto;
+    filter: invert(var(--invert));
+}
+
+.social i {
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(131, 131, 131, 0.3);
+    border-radius: 50%;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+.social i::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #bce706;
+    border-radius: 50%;
+    z-index: -1;
+    clip-path: circle(40% at 0% 100%);
+    transition: .6s;
+}
+
+.social i:hover:after{
+    clip-path: circle(125% at 100% 100%);
+    font-weight: 500;
+}
+
+@media screen and (max-width:1300px) {
+    .headerContent h1{
+        font-size: 90px;
+        line-height: 90px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .headerContent h1{
+        font-size: 90px;
+        line-height: 90px;
+    }
+
+    .Header{
+        flex-direction: column !important;
+    }
+
+    .headerContent{
+        width: 100%;
+    }
+
+    .HeroIMG{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .HeroIMG{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .HeroIMG{
+        width: 100%;
+    }
+}

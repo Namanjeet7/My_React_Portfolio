@@ -1,0 +1,93 @@
+.SkillsWrapper{
+    align-items: center;
+    background-color: var(--bg-color-header) !important;
+    position: relative;
+    gap: 5px;
+}
+
+.SkillsWrapper::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color-header-2) !important;
+    background: url(../../assets/Images/distort-bg.png);
+    background-size: contain;
+    z-index: -1;
+}
+
+.SkillsWrapperder_wrapper::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 400px;
+    filter: blur(190px);
+    background-color: rgba(132, 153, 78, 0.7);
+}
+
+.SkillsWrapper h1{
+    font-size: 60px;
+    color: var(--text-color);
+}
+
+.SkillsWrapper p{
+    font-size: 20px;
+    color: var(--paragraph-color);
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.ToolsWrapper{
+    display: flex;
+    gap: 80px;
+    width: 100%;
+    justify-content: center;
+}
+
+.ToolsWrapper .ToolContainer{
+    display: flex;
+    gap: 30px;
+}
+
+.ToolsWrapper .ToolContainer .Tool{
+    height: 170px;
+    width: 170px;
+    background-color: var(--tool-bg-color);
+    border:0.2px solid var(--tool-border-color) ;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ToolsWrapper .ToolContainer .Tool h4{
+    font-size: 20px;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.ToolsWrapper .ToolContainer .Tool:nth-child(1){
+    border-top-right-radius: 0;
+}
+
+.ToolsWrapper .ToolContainer .Tool:nth-child(2){
+    border-top-left-radius: 0;
+}
+
+@media screen and (max-width:1300px) {
+    .ToolsWrapper{
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .ToolsWrapper{
+        flex-wrap: wrap;
+    }
+}

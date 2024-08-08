@@ -1,0 +1,114 @@
+.nav{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12%;
+    border-bottom: 0.2px solid rgba(131, 131, 131, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.bgmenu{
+    background-color: var(--nav-bg-color);
+}
+
+
+.left_Nav_Container , .Right_Nav_Container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.logo img{
+    width: 60px;
+    filter: invert(var(--invert));
+}
+
+.nav ul li{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav ul li a{
+    color: var(--nav-text-color);
+    transition: .6s;
+}
+
+
+.Theme{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 38px;
+    width: 38px;
+    justify-content: center;
+    border: 0.2px solid rgba(131, 131, 131, 0.5);
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+    filter: invert(var(--invert));
+}
+
+.Theme::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.Theme i{
+    /* color: rgba(0, 0, 0, 1); */
+    color: #000;
+    cursor: pointer;
+}
+
+#Bars{
+    padding: 15px;
+    color: 16px;
+    border: 1px solid rgba(131, 131, 131, 0.5);
+    color: #fff;
+    border-radius: 50%;
+    display: none;
+    filter: invert(var(--invert));
+}
+
+@media screen and (max-width:1100px) {
+    #Bars{
+        display: block;
+    }
+
+    .nav{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav ul{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-bottom: 0.2px solid rgba(131, 131, 131, 0.5);
+        z-index: -1;
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        transition: .6s;
+        opacity: 0;
+    }
+
+    .nav .showMenu{
+        opacity: 1;
+        z-index: 999;
+    }
+
+    .nav ul li{
+        display: block;
+        margin: 48px 0;
+        padding-left: 12%;
+    }
+}
