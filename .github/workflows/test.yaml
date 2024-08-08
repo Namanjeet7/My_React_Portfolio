@@ -6,11 +6,15 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
   test:
     name: Run test suite
     runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: ./Dockerfile.ci
 
     steps:
     - name: Checkout code
@@ -19,18 +23,21 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '16'
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build docker image
+    - name: Build docker images
       run: docker build -t main -f $COMPOSE_FILE .
 
-    - name: Start Storybook
+    - name: Run tests
+      run: docker run -e NODE_ENV=development main npm run test:jest -- --verbose
+
+    - name: Start Storybook in background
       run: |
         docker run -d -p 6006:6006 main npm run storybook
-        sleep 30  # Give Storybook some time to start
+        sleep 30
 
     - name: Run Storybook tests
       run: docker run main npm run test:storybook -- --url http://127.0.0.1:6006 --verbose
@@ -41,20 +48,18 @@ jobs:
     needs: [test]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install Vercel CLI
+      run: npm install -g vercel
 
-      - name: Build the project
-        run: npm run build
-
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+    - name: Deploy to Vercel
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      run: vercel --prod --confirm
