@@ -37,7 +37,7 @@ jobs:
     - name: Start Storybook
       run: |
         docker run -d --name storybook-container --network storybook-net -p 6006:6006 main npm run storybook
-        until curl -s http://storybook-container:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 5; done
+        until curl -s http://storybook-container:6006 > /dev/null; do echo "Waiting for Storybook..."; sleep 30; done
 
     - name: Run Storybook tests
       run: docker run --rm --network storybook-net main sh -c "npm run test:storybook -- --url http://storybook-container:6006/?path=/docs/configure-your-project--docs --verbose"
